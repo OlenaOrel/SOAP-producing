@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soapService.tutorial"
+           targetNamespace="http://soapService.tutorial" elementFormDefault="qualified">
+
+    <xs:element name="getCellPhoneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCellPhoneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cellphone" type="tns:cellPhone"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createCellPhoneRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cellphone" type="tns:cellPhone"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createCellPhoneResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cellphone" type="tns:cellPhone"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="cellPhone">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="brandName" type="xs:string"/>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="price" type="xs:double"/>
+            <xs:element name="operatingSystem" type="tns:operatingSystem"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="operatingSystem">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ANDROID"/>
+            <xs:enumeration value="BLACKBERRY"/>
+            <xs:enumeration value="IOS"/>
+            <xs:enumeration value="WINDOWS"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
